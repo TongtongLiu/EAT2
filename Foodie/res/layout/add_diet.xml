@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/grey"
+    android:scrollbars="vertical"
+    tools:context="com.edu.thss.smartdental.eat.MyDiet" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context="com.edu.thss.smartdental.eat" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="0.18" >
+
+                <Button
+                    android:id="@+id/button_scoring"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_weight="0.09"
+                    android:background="#458B00"
+                    android:gravity="center"
+                    android:text="RUN"
+                    android:textColor="@color/white" 
+                    android:textSize="20dp" />
+
+                <Button
+                    android:id="@+id/button_addddd"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:background="#458B00"
+                    android:gravity="center"
+                    android:textSize="20dp" />
+
+                <Button
+                    android:id="@+id/button_addFood"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginRight="24dp"
+                    android:layout_weight="0.18"
+                    android:background="@drawable/button_add"
+                    android:gravity="center"
+                    android:textSize="20dp" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:layout_weight="0.18"
+                android:background="@drawable/abc_ab_stacked_transparent_light_holo"
+                android:orientation="vertical" >
+
+				<RelativeLayout
+				    android:layout_width="match_parent"
+				    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/textView_food"
+                        android:layout_width="wrap_content"
+                        android:layout_height="42dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_weight="0.18"
+                        android:background="#00cc33"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingTop="10dp"
+                        android:text="一天的食物"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/white" />
+
+                    
+
+				</RelativeLayout>
+				
+                <com.edu.thss.smartdental.eat.ScrollListviewDelete
+                    android:id="@android:id/list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+                </com.edu.thss.smartdental.eat.ScrollListviewDelete>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/abc_ab_stacked_transparent_light_holo"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/textView_nutrition"
+                    android:layout_width="match_parent"
+                    android:layout_height="42dp"
+                    android:layout_gravity="center"
+                    android:background="#00cc33"
+                    android:paddingTop="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingBottom="30dp"
+                    android:text="一天的营养"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/white" />
+
+                <com.edu.thss.smartdental.eat.NoScrollListView
+                    android:id="@+id/listView_nItem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4.91" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+</ScrollView>
