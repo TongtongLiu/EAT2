@@ -1471,7 +1471,13 @@ containing a value of this type.
         public static final int user=0x7f0201c9;
     }
     public static final class id {
+<<<<<<< HEAD
         public static final int Logo=0x7f06005c;
+=======
+<<<<<<< HEAD
+        public static final int Logo=0x7f06005a;
+        public static final int SecondaryProgress=0x01010000;
+>>>>>>> d277011771ddf9d8b9dc65da1c3fb526c05f9d75
         public static final int action_bar=0x7f06001c;
         public static final int action_bar_activity_content=0x7f060015;
         public static final int action_bar_container=0x7f06001b;
@@ -1486,15 +1492,23 @@ containing a value of this type.
         public static final int activity_chooser_view_content=0x7f060025;
         public static final int always=0x7f06000b;
         public static final int beginning=0x7f060011;
+<<<<<<< HEAD
         public static final int btnDelete=0x7f060061;
         public static final int btnNao=0x7f060060;
         public static final int button_addFood=0x7f060042;
         public static final int button_back=0x7f06003c;
         public static final int button_back_1=0x7f060066;
+=======
+        public static final int btnDelete=0x7f06005f;
+        public static final int btnNao=0x7f06005e;
+        public static final int button_addFood=0x7f060042;
+        public static final int button_back=0x7f06003c;
+>>>>>>> d277011771ddf9d8b9dc65da1c3fb526c05f9d75
         public static final int button_food_back=0x7f060045;
         public static final int button_food_continue=0x7f06004c;
         public static final int button_food_save=0x7f06004b;
         public static final int button_scoring=0x7f060044;
+<<<<<<< HEAD
         public static final int button_share=0x7f060067;
         public static final int calendar1=0x7f06004d;
         public static final int calendar_gridview=0x7f060059;
@@ -1505,19 +1519,40 @@ containing a value of this type.
         public static final int circle=0x7f060068;
         public static final int collapseActionView=0x7f06000d;
         public static final int consume=0x7f060063;
+=======
+        public static final int calendar1=0x7f06004d;
+        public static final int calendar_gridview=0x7f060058;
+        public static final int calendar_month_year_textview=0x7f060054;
+        public static final int calendar_title_view=0x7f060053;
+        public static final int calendar_tv=0x7f060057;
+        public static final int checkbox=0x7f06002d;
+        public static final int circle=0x7f060063;
+        public static final int collapseActionView=0x7f06000d;
+        public static final int consume=0x7f060061;
+>>>>>>> d277011771ddf9d8b9dc65da1c3fb526c05f9d75
         public static final int default_activity_button=0x7f060028;
         public static final int dialog=0x7f06000e;
         public static final int disableHome=0x7f060008;
         public static final int dropdown=0x7f06000f;
+<<<<<<< HEAD
         public static final int editButton=0x7f060055;
+=======
+        public static final int editButton=0x7f060052;
+>>>>>>> d277011771ddf9d8b9dc65da1c3fb526c05f9d75
         public static final int edit_query=0x7f060030;
         public static final int end=0x7f060013;
         public static final int expand_activities_button=0x7f060026;
         public static final int expanded_menu=0x7f06002c;
+<<<<<<< HEAD
         public static final int food2=0x7f06006f;
         public static final int food3=0x7f060070;
         public static final int fourmView=0x7f06005a;
         public static final int front=0x7f06005b;
+=======
+        public static final int food2=0x7f060065;
+        public static final int food3=0x7f060066;
+        public static final int front=0x7f060059;
+>>>>>>> d277011771ddf9d8b9dc65da1c3fb526c05f9d75
         public static final int home=0x7f060014;
         public static final int homeAsUp=0x7f060005;
         public static final int icon=0x7f06002a;
@@ -1529,6 +1564,7 @@ containing a value of this type.
         public static final int listView_nItem=0x7f06003f;
         public static final int list_item=0x7f060029;
         public static final int middle=0x7f060012;
+<<<<<<< HEAD
         public static final int months_infinite_pager=0x7f060057;
         public static final int name=0x7f06005d;
         public static final int never=0x7f060009;
@@ -1540,6 +1576,19 @@ containing a value of this type.
         public static final int progress_horizontal=0x7f060019;
         public static final int radio=0x7f06002f;
         public static final int scoring_feedback=0x7f060069;
+=======
+        public static final int months_infinite_pager=0x7f060056;
+        public static final int name=0x7f06005b;
+        public static final int never=0x7f060009;
+        public static final int none=0x7f060010;
+        public static final int normal=0x7f060000;
+        public static final int number=0x7f06005c;
+        public static final int progressBar1=0x7f060060;
+        public static final int progress_circular=0x7f060018;
+        public static final int progress_horizontal=0x7f060019;
+        public static final int radio=0x7f06002f;
+        public static final int scoring_feedback=0x7f060064;
+>>>>>>> d277011771ddf9d8b9dc65da1c3fb526c05f9d75
         public static final int search_badge=0x7f060032;
         public static final int search_bar=0x7f060031;
         public static final int search_button=0x7f060033;
@@ -1551,9 +1600,12 @@ containing a value of this type.
         public static final int search_src_text=0x7f060037;
         public static final int search_voice_btn=0x7f06003b;
         public static final int seekBar_food_weight=0x7f06004a;
+<<<<<<< HEAD
         public static final int shareBtn=0x7f06006e;
         public static final int shareLabel=0x7f06006c;
         public static final int shareText=0x7f06006d;
+=======
+>>>>>>> d277011771ddf9d8b9dc65da1c3fb526c05f9d75
         public static final int shortcut=0x7f06002e;
         public static final int showCustom=0x7f060007;
         public static final int showHome=0x7f060004;
@@ -1561,12 +1613,19 @@ containing a value of this type.
         public static final int split_action_bar=0x7f06001e;
         public static final int submit_area=0x7f060039;
         public static final int tabMode=0x7f060002;
+<<<<<<< HEAD
         public static final int testButton=0x7f060052;
         public static final int textView1=0x7f060064;
         public static final int textView_4=0x7f060040;
         public static final int textView_44=0x7f060043;
         public static final int textView_diet=0x7f06003d;
         public static final int textView_diet_1=0x7f060065;
+=======
+        public static final int textView1=0x7f060062;
+        public static final int textView_4=0x7f060040;
+        public static final int textView_44=0x7f060043;
+        public static final int textView_diet=0x7f06003d;
+>>>>>>> d277011771ddf9d8b9dc65da1c3fb526c05f9d75
         public static final int textView_food=0x7f060041;
         public static final int textView_food_date=0x7f060046;
         public static final int textView_nutrition=0x7f06003e;
@@ -1575,6 +1634,7 @@ containing a value of this type.
         public static final int textView_weight=0x7f060049;
         public static final int title=0x7f06002b;
         public static final int top_action_bar=0x7f060020;
+<<<<<<< HEAD
         public static final int unit=0x7f06005f;
         public static final int up=0x7f060021;
         public static final int useLogo=0x7f060003;
@@ -1584,6 +1644,124 @@ containing a value of this type.
         public static final int wheelView_name=0x7f060048;
         public static final int wheelView_type=0x7f060047;
         public static final int withText=0x7f06000c;
+=======
+        public static final int unit=0x7f06005d;
+        public static final int up=0x7f060021;
+        public static final int useLogo=0x7f060003;
+        public static final int weekday_gridview=0x7f060055;
+        public static final int wheelView_name=0x7f060048;
+        public static final int wheelView_type=0x7f060047;
+        public static final int withText=0x7f06000c;
+=======
+        public static final int Logo=0x7f0a005b;
+        public static final int action_bar=0x7f0a001c;
+        public static final int action_bar_activity_content=0x7f0a0001;
+        public static final int action_bar_container=0x7f0a001b;
+        public static final int action_bar_overlay_layout=0x7f0a001f;
+        public static final int action_bar_root=0x7f0a001a;
+        public static final int action_bar_subtitle=0x7f0a0023;
+        public static final int action_bar_title=0x7f0a0022;
+        public static final int action_context_bar=0x7f0a001d;
+        public static final int action_menu_divider=0x7f0a0002;
+        public static final int action_menu_presenter=0x7f0a0003;
+        public static final int action_mode_close_button=0x7f0a0024;
+        public static final int activity_chooser_view_content=0x7f0a0025;
+        public static final int always=0x7f0a000f;
+        public static final int beginning=0x7f0a0016;
+        public static final int btnDelete=0x7f0a0060;
+        public static final int btnNao=0x7f0a005f;
+        public static final int button_addFood=0x7f0a0042;
+        public static final int button_back=0x7f0a003c;
+        public static final int button_back_1=0x7f0a0065;
+        public static final int button_food_back=0x7f0a0045;
+        public static final int button_food_continue=0x7f0a004c;
+        public static final int button_food_save=0x7f0a004b;
+        public static final int button_scoring=0x7f0a0044;
+        public static final int button_share=0x7f0a0066;
+        public static final int calendar1=0x7f0a004d;
+        public static final int calendar_gridview=0x7f0a0059;
+        public static final int calendar_month_year_textview=0x7f0a0054;
+        public static final int calendar_title_view=0x7f0a0053;
+        public static final int calendar_tv=0x7f0a0058;
+        public static final int checkbox=0x7f0a002d;
+        public static final int circle=0x7f0a0067;
+        public static final int collapseActionView=0x7f0a0010;
+        public static final int consume=0x7f0a0062;
+        public static final int default_activity_button=0x7f0a0028;
+        public static final int dialog=0x7f0a0014;
+        public static final int disableHome=0x7f0a0009;
+        public static final int dropdown=0x7f0a0015;
+        public static final int editButton=0x7f0a0055;
+        public static final int edit_query=0x7f0a0030;
+        public static final int end=0x7f0a0017;
+        public static final int expand_activities_button=0x7f0a0026;
+        public static final int expanded_menu=0x7f0a002c;
+        public static final int food2=0x7f0a0069;
+        public static final int food3=0x7f0a006a;
+        public static final int front=0x7f0a005a;
+        public static final int home=0x7f0a0000;
+        public static final int homeAsUp=0x7f0a000a;
+        public static final int icon=0x7f0a002a;
+        public static final int ifRoom=0x7f0a0011;
+        public static final int image=0x7f0a0027;
+        public static final int imageView_feedback=0x7f0a004e;
+        public static final int linearLayout1=0x7f0a004f;
+        public static final int listMode=0x7f0a0006;
+        public static final int listView_nItem=0x7f0a003f;
+        public static final int list_item=0x7f0a0029;
+        public static final int middle=0x7f0a0018;
+        public static final int months_infinite_pager=0x7f0a0057;
+        public static final int name=0x7f0a005c;
+        public static final int never=0x7f0a0012;
+        public static final int none=0x7f0a0019;
+        public static final int normal=0x7f0a0007;
+        public static final int number=0x7f0a005d;
+        public static final int progressBar1=0x7f0a0061;
+        public static final int progress_circular=0x7f0a0004;
+        public static final int progress_horizontal=0x7f0a0005;
+        public static final int radio=0x7f0a002f;
+        public static final int scoring_feedback=0x7f0a0068;
+        public static final int search_badge=0x7f0a0032;
+        public static final int search_bar=0x7f0a0031;
+        public static final int search_button=0x7f0a0033;
+        public static final int search_close_btn=0x7f0a0038;
+        public static final int search_edit_frame=0x7f0a0034;
+        public static final int search_go_btn=0x7f0a003a;
+        public static final int search_mag_icon=0x7f0a0035;
+        public static final int search_plate=0x7f0a0036;
+        public static final int search_src_text=0x7f0a0037;
+        public static final int search_voice_btn=0x7f0a003b;
+        public static final int seekBar_food_weight=0x7f0a004a;
+        public static final int shortcut=0x7f0a002e;
+        public static final int showCustom=0x7f0a000b;
+        public static final int showHome=0x7f0a000c;
+        public static final int showTitle=0x7f0a000d;
+        public static final int split_action_bar=0x7f0a001e;
+        public static final int submit_area=0x7f0a0039;
+        public static final int tabMode=0x7f0a0008;
+        public static final int testButton=0x7f0a0052;
+        public static final int textView1=0x7f0a0063;
+        public static final int textView_4=0x7f0a0040;
+        public static final int textView_44=0x7f0a0043;
+        public static final int textView_diet=0x7f0a003d;
+        public static final int textView_diet_1=0x7f0a0064;
+        public static final int textView_food=0x7f0a0041;
+        public static final int textView_food_date=0x7f0a0046;
+        public static final int textView_nutrition=0x7f0a003e;
+        public static final int textView_suggestion=0x7f0a0051;
+        public static final int textView_today=0x7f0a0050;
+        public static final int textView_weight=0x7f0a0049;
+        public static final int title=0x7f0a002b;
+        public static final int top_action_bar=0x7f0a0020;
+        public static final int unit=0x7f0a005e;
+        public static final int up=0x7f0a0021;
+        public static final int useLogo=0x7f0a000e;
+        public static final int weekday_gridview=0x7f0a0056;
+        public static final int wheelView_name=0x7f0a0048;
+        public static final int wheelView_type=0x7f0a0047;
+        public static final int withText=0x7f0a0013;
+>>>>>>> 7a02b3dacfd9a387550196b9c98cd65c67dae8e9
+>>>>>>> d277011771ddf9d8b9dc65da1c3fb526c05f9d75
     }
     public static final class integer {
         /**  The maximum number of action buttons that should be permitted within

@@ -42,13 +42,12 @@ public final class R {
         public static int right_arrow=0x7f020008;
     }
     public static final class id {
-        public static int calendar_gridview=0x7f070006;
+        public static int calendar_gridview=0x7f070005;
         public static int calendar_month_year_textview=0x7f070001;
         public static int calendar_title_view=0x7f070000;
-        public static int calendar_tv=0x7f070005;
-        public static int editButton=0x7f070002;
-        public static int months_infinite_pager=0x7f070004;
-        public static int weekday_gridview=0x7f070003;
+        public static int calendar_tv=0x7f070004;
+        public static int months_infinite_pager=0x7f070003;
+        public static int weekday_gridview=0x7f070002;
     }
     public static final class layout {
         public static int calendar_view=0x7f030000;

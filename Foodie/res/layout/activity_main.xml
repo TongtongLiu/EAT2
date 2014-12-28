@@ -49,26 +49,17 @@
 
         </RelativeLayout>
 
+        <Button
+            android:id="@+id/editButton"
+            android:layout_width="153dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/imageView_feedback"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_run"
+            android:text="Edit Foodlist"
+            android:textColor="#FFFFFF"
+            android:textSize="16dp" />
+
     </RelativeLayout>
-
-    <Button 
-        android:id="@+id/testButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
-<!--
-	<SeekBar
-	    android:id="@+id/seekBarImg"
-	    android:paddingLeft="0px"
-        android:layout_width="match_parent"
-        android:layout_height="250px"
-        android:progressDrawable="@drawable/seekbar_img"
-        android:thumb="@drawable/seekbar_thumb"
-		/>
-	<TextView 
-	    android:id="@+id/textseek"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content" />
--->
-
 </LinearLayout>
