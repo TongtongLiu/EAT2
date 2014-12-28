@@ -78,6 +78,7 @@ public class Fourm extends Activity{
 			String response = postRequest(
 					"http://59.66.137.62:8000/mergeJson",
 					getIntent().getExtras().getSerializable("name").toString(),
+					getIntent().getExtras().getSerializable("topic").toString(),
 					getIntent().getExtras().getSerializable("text").toString());
 			
 			Message msg = new Message();
@@ -89,7 +90,7 @@ public class Fourm extends Activity{
 	};
 	
 	//向指定的url发送post请求
-	public static String postRequest(String url, String username, String content){
+	public static String postRequest(String url, String username, String topic, String content){
 		try{
 			//创建json对象
 			JSONObject jsonObj = new JSONObject();
@@ -98,7 +99,7 @@ public class Fourm extends Activity{
 			Date date = new Date();
 			SimpleDateFormat spdate = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 			jsonObj.put("type", "food");
-			jsonObj.put("title", "我是桑留芳，我是吃货");
+			jsonObj.put("title", topic);
 			jsonObj.put("author", username);
 			jsonObj.put("img", "img/avatar.png");
 			jsonObj.put("favor", "0");
