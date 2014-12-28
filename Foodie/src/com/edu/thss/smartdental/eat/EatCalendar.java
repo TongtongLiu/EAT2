@@ -123,7 +123,7 @@ public class EatCalendar extends FragmentActivity {
 
 			@Override
 			public void onLongClickDate(Date date, View view) {
-				Intent intent = new Intent(EatCalendar.this, MyDiet.class);
+				Intent intent = new Intent(EatCalendar.this, DietPanel.class);
 				//intent.putExtra(EXTRA_MESSAGE, formatter.format(date));
 				intent.putExtra("date", formatter.format(date));
 				EatCalendar.this.startActivity(intent);

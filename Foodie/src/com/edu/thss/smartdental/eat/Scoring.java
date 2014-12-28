@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.TaskStackBuilder;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
@@ -34,6 +35,8 @@ public class Scoring extends Activity {
 	private int ran;
 	private String date;
 	public SQLRecipes sqlrecipe;
+	private Context context;
+	Intent intent = getIntent();
 
 	@SuppressWarnings("deprecation")
 	@Override
@@ -43,15 +46,10 @@ public class Scoring extends Activity {
 		
 		date = getIntent().getStringExtra("date");
 		sqlrecipe = new SQLRecipes(this);
-		final Random random = new Random();
-		String[][] advice = new String[14][3];
-		for(int i = 0; i<14; i++)
-		{
-		    for(int j = 0; j<3; j++)
-			advice[i][j] = String.valueOf(i) + String.valueOf(j);
-		}
+		//final Random random = new Random();
 		double[] temp = {80, 1000, 17.5, 350, 13, 0.75, 100, 0.005, 14, 1.5, 1.7, 1.9, 0.0024, 85};
-		final getPoints a = new getPoints(temp,advice);
+		//double[] str = intent.getDoubleArrayExtra("nutr_list");
+		final getPoints a = new getPoints(temp);
 		ran = Integer.parseInt(new java.text.DecimalFormat("0").format(a.score));
 		
 		feedback = (TextView) findViewById(R.id.scoring_feedback);

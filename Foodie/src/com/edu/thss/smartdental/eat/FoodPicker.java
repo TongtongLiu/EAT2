@@ -62,12 +62,13 @@ public class FoodPicker extends Activity {
 		// 按钮事件设置
 		setSaveButtonListener();
 		setContinueButtonListener();
+		setReturnButtonListener();
 	}
 	
 	private void setDate(String date) {
 		this.mDate = date;
-		// TextView textView = (TextView) findViewById(R.id.textView_food_date);
-		// textView.setText(this.mDate + getResources().getString(R.string.food_picker_title));
+		TextView textView = (TextView) findViewById(R.id.textView_food_date);
+		textView.setText(this.mDate);
 	}
 
 	public void setSqlRecipes(SQLRecipes sqlRecipes) {
@@ -166,6 +167,14 @@ public class FoodPicker extends Activity {
 			sqlRecipes.insert(recipes);
 		}
 		
+		List<foodInRecipes> foodExist = sqlRecipes.findFoodInRecipes(date);
+		for (int i = 0; i < foodExist.size(); i++) {
+			if (foodExist.get(i).name.equals(name)) {
+				sqlRecipes.updateFoodWeight(date, name, foodExist.get(i).weight + weight);
+				return;
+			}
+		}
+		
 		foodInRecipes foodItem = new foodInRecipes();
 		foodItem.recipe_time = date;
 		foodItem.name = name;
@@ -180,7 +189,7 @@ public class FoodPicker extends Activity {
 			@Override
 			public void onClick(View view) {
 				insertFoodItem(mSqlRecipes, mDate, mName, mWeight);
-				startNewIntent(new Intent("scoring"), mDate);
+				startNewIntent(new Intent(FoodPicker.this, DietPanel.class), mDate);
 			}
 		});
 	}
@@ -193,7 +202,17 @@ public class FoodPicker extends Activity {
 			public void onClick(View view) {
 				insertFoodItem(mSqlRecipes, mDate, mName, mWeight);
 				startNewIntent(new Intent(FoodPicker.this, FoodPicker.class), mDate);
-				// startNewIntent(new Intent("scoring"), mDate);
+			}
+		});
+	}
+	
+	private void setReturnButtonListener() {
+		Button btReturn = (Button) findViewById(R.id.button_food_back);
+		
+		btReturn.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				startNewIntent(new Intent(FoodPicker.this, DietPanel.class), mDate);
 			}
 		});
 	}
