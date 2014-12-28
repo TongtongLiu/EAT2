@@ -166,6 +166,14 @@ public class FoodPicker extends Activity {
 			sqlRecipes.insert(recipes);
 		}
 		
+		List<foodInRecipes> foodExist = sqlRecipes.findFoodInRecipes(date);
+		for (int i = 0; i < foodExist.size(); i++) {
+			if (foodExist.get(i).name.equals(name)) {
+				sqlRecipes.updateFoodWeight(date, name, foodExist.get(i).weight + weight);
+				return;
+			}
+		}
+		
 		foodInRecipes foodItem = new foodInRecipes();
 		foodItem.recipe_time = date;
 		foodItem.name = name;
@@ -180,7 +188,7 @@ public class FoodPicker extends Activity {
 			@Override
 			public void onClick(View view) {
 				insertFoodItem(mSqlRecipes, mDate, mName, mWeight);
-				startNewIntent(new Intent("scoring"), mDate);
+				startNewIntent(new Intent(FoodPicker.this, DietPanel.class), mDate);
 			}
 		});
 	}
@@ -193,7 +201,6 @@ public class FoodPicker extends Activity {
 			public void onClick(View view) {
 				insertFoodItem(mSqlRecipes, mDate, mName, mWeight);
 				startNewIntent(new Intent(FoodPicker.this, FoodPicker.class), mDate);
-				// startNewIntent(new Intent("scoring"), mDate);
 			}
 		});
 	}

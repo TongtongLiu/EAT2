@@ -125,7 +125,7 @@ public class SQLRecipes {
 	//根据时间和食物名称修改饮食记录的重量
 		public void updateFoodWeight(String time,String name,int weight){
 			SQLiteDatabase database = helper.getWritableDatabase();
-			database.execSQL("update foodInRecipes set weight = " + weight + "where recipe_time = ? and name = ?" , new Object[]{time,name});
+			database.execSQL("update foodInRecipes set weight = " + weight + " where recipe_time = ? and name = ?" , new Object[]{time,name});
 		}
 	//根据食物名字获取食物信息
 		public foodNutrition findOneFoodNutritionByName(String name){

@@ -79,15 +79,14 @@
 	            android:layout_width="100dp"
 	            android:layout_height="160dp"
 	            android:layout_weight="1" />
+	        
+       	    <TextView
+	            android:layout_width="match_parent"
+	            android:layout_height="10dp"
+	            android:background="@drawable/corner_bottom"
+	            android:textAppearance="?android:attr/textAppearanceMedium"
+	            android:textColor="@color/white" />
 	    </LinearLayout>
-    
-	    <TextView
-             android:id="@+id/textView_wheel"
-             android:layout_width="match_parent"
-             android:layout_height="10dp"
-             android:background="@drawable/corner_bottom"
-             android:textAppearance="?android:attr/textAppearanceMedium"
-             android:textColor="@color/white" />
 	</LinearLayout>
 
 	<LinearLayout
@@ -118,10 +117,17 @@
 	        android:layout_height="60dp"
 	        android:paddingTop="15dp"
 	        android:background="@color/white"
-	        android:max="1000"
-	  android:progress="0"
-	  android:progressDrawable="@drawable/background_bar"
-	  android:thumb="@drawable/thumb_bar" />
+	        android:max="500"
+			android:progress="0"
+			android:progressDrawable="@drawable/background_bar"
+			android:thumb="@drawable/thumb_bar" />
+	    
+	    <TextView
+             android:layout_width="match_parent"
+             android:layout_height="10dp"
+             android:background="@drawable/corner_bottom"
+             android:textAppearance="?android:attr/textAppearanceMedium"
+             android:textColor="@color/white" />
 	    
 	</LinearLayout>
 
