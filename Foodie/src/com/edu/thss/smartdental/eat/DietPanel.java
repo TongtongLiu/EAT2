@@ -1,14 +1,6 @@
 package com.edu.thss.smartdental.eat;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-
-import com.edu.thss.smartdental.db.SQLRecipes;
-import com.edu.thss.smartdental.model.Recipes;
-import com.edu.thss.smartdental.model.foodInRecipes;
-import com.edu.thss.smartdental.model.foodNutrition;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -19,14 +11,15 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
-
+import android.widget.TextView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 
+import com.edu.thss.smartdental.db.SQLRecipes;
 import com.edu.thss.smartdental.eat.NutritionAdapter;
 import com.edu.thss.smartdental.eat.ScrollListviewDelete.ItemClickListener;
 
-public class MyDiet extends FragmentActivity implements ItemClickListener, OnClickListener{
+public class DietPanel extends FragmentActivity implements ItemClickListener, OnClickListener{
 
 	public SQLRecipes sqlRecipes = null;
 	String dateString = null;
@@ -43,12 +36,12 @@ public class MyDiet extends FragmentActivity implements ItemClickListener, OnCli
 	protected void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.add_diet);			
+		setContentView(R.layout.activity_diet_panel);			
 
 		//Textview 鑾峰彇鏃堕棿
-		Intent intent = getIntent();
 		dateString = getIntent().getStringExtra("date");
-
+		TextView textView = (TextView) findViewById(R.id.textView_diet);
+		textView.setText(dateString);
 
 				
 		//鎸夐挳锛氭坊鍔犻鐗�
@@ -57,6 +50,9 @@ public class MyDiet extends FragmentActivity implements ItemClickListener, OnCli
 		
 		Button scoring = (Button) findViewById(R.id.button_scoring);
 		scoring.setOnClickListener(this);
+		
+		Button btReturn = (Button) findViewById(R.id.button_back);
+		btReturn.setOnClickListener(this);
 		
 		//鍒楄〃锛氫竴澶╃殑钀ュ吇 	
 		nutrList = (ListView) findViewById(R.id.listView_nItem);
@@ -78,7 +74,7 @@ public class MyDiet extends FragmentActivity implements ItemClickListener, OnCli
 		switch(view.getId())
 		{
 		case R.id.button_addFood:
-			intent = new Intent(this, MyFood.class);
+			intent = new Intent(this, FoodPicker.class);
 			intent.putExtra("date", dateString);
 			startActivity(intent);
 			break;

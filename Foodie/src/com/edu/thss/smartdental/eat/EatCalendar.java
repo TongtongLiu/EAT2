@@ -142,7 +142,7 @@ public class EatCalendar extends FragmentActivity {
 							Toast.LENGTH_SHORT).show();
 					return;
 				}
-				Intent intent = new Intent(EatCalendar.this, MyDiet.class);
+				Intent intent = new Intent(EatCalendar.this, DietPanel.class);
 				//intent.putExtra(EXTRA_MESSAGE, formatter.format(date));
 				intent.putExtra("date", formatter.format(date));
 				EatCalendar.this.startActivity(intent);
