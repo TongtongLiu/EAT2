@@ -27,7 +27,7 @@
             android:label="DietPanel" 
             android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
             <intent-filter>
-                <action android:name="add_diet" />
+                <action android:name="dietpanel" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -36,7 +36,7 @@
             android:label="FoodPicker" 
             android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
              <intent-filter>
-                <action android:name="add_food" />
+                <action android:name="foodpicker" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

@@ -13,7 +13,10 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="508dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp" >
 
         <ImageView
             android:id="@+id/imageView_feedback"
@@ -24,10 +27,10 @@
         <RelativeLayout
             android:id="@+id/linearLayout1"
             android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
+            android:layout_height="100dp"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="15dp"
-            android:layout_toRightOf="@+id/imageView_feedback" >
+            android:layout_toRightOf="@+id/imageView_feedback">
 
             <TextView
                 android:id="@+id/textView_today"
@@ -53,9 +56,9 @@
             android:id="@+id/editButton"
             android:layout_width="153dp"
             android:layout_height="40dp"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
             android:layout_below="@+id/imageView_feedback"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="61dp"
             android:background="@drawable/button_run"
             android:text="Edit Foodlist"
             android:textColor="#FFFFFF"

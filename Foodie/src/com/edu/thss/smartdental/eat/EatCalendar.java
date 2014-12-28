@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.text.TextPaint;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -53,6 +54,7 @@ public class EatCalendar extends FragmentActivity {
 		final TextView textView_today = (TextView) findViewById(R.id.textView_today);
 		final TextView textView_suggestion = (TextView) findViewById(R.id.textView_suggestion);
 		final ImageView imageView_feedback = (ImageView) findViewById(R.id.imageView_feedback);
+		textView_suggestion.setMovementMethod(ScrollingMovementMethod.getInstance());
 		String text = formatter.format(selectdate);
 		textView_today.setText(text);
 		TextPaint tPaint = textView_today.getPaint();
@@ -108,24 +110,18 @@ public class EatCalendar extends FragmentActivity {
 			
 			@Override
 			public void onSelectDate(Date date, View view) {
-				if (date.after(currentdate))
-				{
-					Toast.makeText(getApplicationContext(),
-							"不能在未来添加饮食记录哦！",
-							Toast.LENGTH_SHORT).show();
-					return;
-				}
 				// 更改背景图片
 				if (! String.format("%td", selectdate).equals(String.format("%td", currentdate)))
 				{
 					caldroidFragment.setTextColorForDate(R.color.white, selectdate);
 					caldroidFragment.setBackgroundResourceForDate(R.drawable.date_default, selectdate);
 				}
-				if (! String.format("%td", date).equals(String.format("%td", currentdate)))
-				{
-					caldroidFragment.setTextColorForDate(R.color.blue, date);
-					caldroidFragment.setBackgroundResourceForDate(R.drawable.date_pick, date);
+				else {
+					caldroidFragment.setTextColorForDate(R.color.white, selectdate);
+					caldroidFragment.setBackgroundResourceForDate(R.drawable.date_today, selectdate);
 				}
+				caldroidFragment.setTextColorForDate(R.color.blue, date);
+				caldroidFragment.setBackgroundResourceForDate(R.drawable.date_pick, date);
 				selectdate = (Date) date.clone();	
 				caldroidFragment.refreshView();
 
@@ -150,15 +146,22 @@ public class EatCalendar extends FragmentActivity {
 		};
 		
 		
-		/*editButton = (Button)findViewById(R.id.editButton);
+		editButton = (Button)findViewById(R.id.editButton);
 		editButton.setOnClickListener(new Button.OnClickListener(){
 			public void onClick(View v){
-				//Intent intent = new Intent(EatCalendar.this, MyDiet.class);
-				//intent.putExtra(EXTRA_MESSAGE, formatter.format(date));
-				//intent.putExtra("date", formatter.format(selectdate));
-				//startActivity(intent);
+				if (selectdate.after(currentdate))
+				{
+					Toast.makeText(getApplicationContext(),
+							"不能在未来添加饮食记录哦！",
+							Toast.LENGTH_SHORT).show();
+					return;
+				}
+				Intent intent = new Intent(EatCalendar.this, DietPanel.class);
+				intent.putExtra(EXTRA_MESSAGE, formatter.format(selectdate));
+				intent.putExtra("date", formatter.format(selectdate));
+				startActivity(intent);
 			}
-		});*/
+		});
 		// Setup Calendar
 		initCalendar();
 		setTextView();

@@ -17,11 +17,7 @@ int drawable disable_cell 0x7f020005
 int drawable ic_launcher 0x7f020006
 int drawable left_arrow 0x7f020007
 int drawable right_arrow 0x7f020008
-<<<<<<< HEAD
 int id calendar_gridview 0x7f070005
-=======
-int id calendar_gridview 0x7f070006
->>>>>>> 1c0efcc166b9a0ff84685265cd457d2c9fe35f5a
 int id calendar_month_year_textview 0x7f070001
 int id calendar_title_view 0x7f070000
 int id calendar_tv 0x7f070004
