@@ -20,7 +20,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:layout_weight="0.18"
-                    android:text="健 康 评 分"
+                    android:text="健康评分"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/white"
                     android:textSize="25sp" />
@@ -34,16 +34,24 @@
                     android:layout_alignParentLeft="true"
                     android:background="@drawable/back" />
 
+                <Button
+                    android:id="@+id/button_share"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignBaseline="@+id/textView_diet_1"
+                    android:layout_alignBottom="@+id/textView_diet_1"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/back" />
+
             </RelativeLayout>
 
 	<com.edu.thss.smartdental.eat.CircleBar
-    	android:id="@+id/circle"
-        android:layout_width="wrap_content"
-    	android:layout_height="wrap_content"
-    	android:layout_marginTop="20dip"
-    	android:layout_gravity="center"
-    	android:clickable="true"
-    />
+	    android:id="@+id/circle"
+	    android:layout_width="244dp"
+	    android:layout_height="271dp"
+	    android:layout_gravity="center"
+	    android:layout_marginTop="20dip"
+	    android:clickable="true" />
 	
 <!--	
 	<TextView
