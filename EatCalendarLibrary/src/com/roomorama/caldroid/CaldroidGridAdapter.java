@@ -248,7 +248,7 @@ public class CaldroidGridAdapter extends BaseAdapter {
 		cellView.setText("" + dateTime.getDay());
 		Typeface type = Typeface.createFromAsset(cellView.getContext().getAssets(), "fonts/calendarfont2.ttf");
 		cellView.setTypeface(type);
-		cellView.setTextSize(14);
+		cellView.setTextSize(16);
 
 		// Set custom color if required
 		setCustomResources(dateTime, cellView, cellView);

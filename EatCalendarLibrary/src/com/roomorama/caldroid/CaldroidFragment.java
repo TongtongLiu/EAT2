@@ -1121,6 +1121,13 @@ public class CaldroidFragment extends DialogFragment {
 		
 		//For the EditButton
 		editButton = (Button)view.findViewById(R.id.editButton);
+		/*editButton.setOnClickListener(new Button.OnclickListener()
+		{
+			public void onClick(View v)
+			{
+				
+			}
+		});*/
 
 		// For the weekday gridview ("SUN, MON, TUE, WED, THU, FRI, SAT")
 		weekdayGridView = (GridView) view.findViewById(R.id.weekday_gridview);
