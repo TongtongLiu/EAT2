@@ -9,5 +9,10 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="scoring_initialtext">点击圆环跑分！</string>
+    <string name="food_picker_title">食    物</string>
+    <string name="food_picker_name">食物名称</string>
+    <string name="food_picker_weight">食物重量</string>
+    <string name="food_picker_save">SAVE</string>
+    <string name="food_picker_continue">ADD MORE</string>
 
 </resources>

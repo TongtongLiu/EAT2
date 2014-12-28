@@ -78,7 +78,7 @@ public class MyDiet extends FragmentActivity implements ItemClickListener, OnCli
 		switch(view.getId())
 		{
 		case R.id.button_addFood:
-			intent = new Intent(this, MyFood.class);
+			intent = new Intent(this, FoodPicker.class);
 			intent.putExtra("date", dateString);
 			startActivity(intent);
 			break;

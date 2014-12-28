@@ -32,7 +32,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.edu.thss.smartdental.eat.MyFood"
+            android:name="com.edu.thss.smartdental.eat.FoodPicker"
             android:label="MyFood" 
             android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
              <intent-filter>

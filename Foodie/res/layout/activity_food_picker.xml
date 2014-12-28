@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/grey"
     android:orientation="vertical" 
-    tools:context="com.edu.thss.smartdental.eat.MyFood" >
+    tools:context="com.edu.thss.smartdental.eat.FoodPicker" >
 
        <LinearLayout
            android:layout_width="match_parent"
@@ -20,23 +20,23 @@
            android:background="#5cc8e5" >
 
            <Button
-               android:id="@+id/button_back"
+               android:id="@+id/button_food_back"
                android:layout_width="40dp"
                android:layout_height="40dp"
-               android:layout_alignBaseline="@+id/textView_diet"
-               android:layout_alignBottom="@+id/textView_diet"
+               android:layout_alignBaseline="@+id/textView_food_date"
+               android:layout_alignBottom="@+id/textView_food_date"
                android:layout_alignParentLeft="true"
                android:background="@drawable/back" />
 
            <TextView
-               android:id="@+id/textView_diet"
+               android:id="@+id/textView_food_date"
                android:layout_width="wrap_content"
                android:layout_height="42dp"
                android:layout_alignParentBottom="true"
                android:layout_marginLeft="99dp"
-               android:layout_toRightOf="@+id/button_back"
+               android:layout_toRightOf="@+id/button_food_back"
                android:layout_weight="0.18"
-               android:text="食  谱"
+               android:text="@string/food_picker_title"
                android:textAppearance="?android:attr/textAppearanceMedium"
                android:textColor="@color/white"
                android:textSize="25sp" />
@@ -63,7 +63,7 @@
 
            <TextView
                android:layout_width="match_parent"
-               android:layout_height="42dp"
+               android:layout_height="48dp"
                android:layout_marginLeft="5dp"
                android:layout_marginRight="5dp"
                android:layout_marginTop="20dp"
@@ -71,7 +71,7 @@
                android:paddingBottom="10dp"
                android:paddingLeft="10dp"
                android:paddingTop="10dp"
-               android:text="食物名称"
+               android:text="@string/food_picker_name"
                android:textAppearance="?android:attr/textAppearanceMedium"
                android:textColor="@color/white" />
 
@@ -83,13 +83,13 @@
                android:background="@color/white" >
 
                <com.edu.thss.smartdental.eat.WheelView
-                   android:id="@+id/type_wv"
+                   android:id="@+id/wheelView_type"
                    android:layout_width="100dp"
                    android:layout_height="160dp"
                    android:layout_weight="1" />
 
                <com.edu.thss.smartdental.eat.WheelView
-                   android:id="@+id/name_wv"
+                   android:id="@+id/wheelView_name"
                    android:layout_width="100dp"
                    android:layout_height="160dp"
                    android:layout_weight="1" />
@@ -114,30 +114,36 @@
        android:orientation="vertical" >
 
        <TextView
+           android:id="@+id/textView_weight"
            android:layout_width="match_parent"
-           android:layout_height="42dp"
+           android:layout_height="48dp"
            android:background="@drawable/corner_top"
            android:padding="10dp"
            android:paddingBottom="10dp"
            android:paddingLeft="10dp"
-           android:paddingTop="10dp"
-           android:text="食物重量"
+           android:paddingTop="20dp"
+           android:text="@string/food_picker_weight"
            android:textColor="@color/white"
            android:textAppearance="?android:attr/textAppearanceMedium" />
 
        <SeekBar
-           android:id="@+id/add_food_seekBar_weight"
+           android:id="@+id/seekBar_food_weight"
            android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:background="@color/white" />
+           android:layout_height="60dp"
+           android:paddingTop="15dp"
+           android:background="@color/white"
+           android:max="1000"
+		   android:progress="0"
+		   android:progressDrawable="@drawable/background_bar"
+		   android:thumb="@drawable/thumb_bar" />
        
-       <TextView
+<!--        <TextView
            android:id="@+id/textView_4"
            android:layout_width="match_parent"
            android:layout_height="10dp"
            android:background="@drawable/corner_bottom"
            android:textAppearance="?android:attr/textAppearanceMedium"
-           android:textColor="@color/white" />
+           android:textColor="@color/white" /> -->
 
    </LinearLayout>
 
@@ -147,22 +153,22 @@
 	    android:layout_weight="0.00" >
 
 	    <Button
-	        android:id="@+id/add_food_button_save"
+	        android:id="@+id/button_food_save"
 	        android:layout_width="120dp"
 	        android:layout_height="48dp"
 	        android:layout_weight="0.33"
 	        android:background="@drawable/button_run"
 	        android:paddingLeft="10dp"
-	        android:text="BACK" 
+	        android:text="@string/food_picker_save"
 	        android:textColor="@color/white"/>
 
 	    <Button
-	        android:id="@+id/add_food_button_continue"
+	        android:id="@+id/button_food_continue"
 	        android:layout_width="147dp"
 	        android:layout_height="51dp"
 	        android:layout_weight="0.12"
 	        android:background="@drawable/button_run"
-	        android:text="ADD MORE" 
+	        android:text="@string/food_picker_continue" 
 	        android:textColor="@color/white"/>
 	
 	</LinearLayout>
