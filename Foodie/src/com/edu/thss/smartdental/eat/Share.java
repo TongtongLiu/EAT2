@@ -17,6 +17,7 @@ public class Share extends Activity{
 	private Button button;
 	private EditText shareText;
 	private EditText usernameText;
+	private EditText topicText;
 	
 	@SuppressWarnings("deprecation")
 	@Override
@@ -27,6 +28,8 @@ public class Share extends Activity{
 		getActionBar().hide();
 		
 		usernameText = (EditText) findViewById(R.id.usernameText);
+		
+		topicText = (EditText) findViewById(R.id.topicText);
 		
 		shareText = (EditText) findViewById(R.id.shareText);
 		
@@ -39,6 +42,7 @@ public class Share extends Activity{
 			public void onClick(View view){
 				Intent intent = new Intent("fourm");
 				intent.putExtra("name", usernameText.getText().toString());
+				intent.putExtra("topic", topicText.getText().toString());
 				intent.putExtra("text", shareText.getText().toString());
 				startActivity(intent);
 			}
