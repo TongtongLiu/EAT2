@@ -14,6 +14,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
+import android.text.method.ScrollingMovementMethod;
 import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -35,9 +36,10 @@ public class Scoring extends Activity implements OnClickListener {
 	private TextView feedback;
 	private int ran;
 	private String date;
+	private double[] str;
 	public SQLRecipes sqlrecipe;
 	private Context context;
-	Intent intent = getIntent();
+	//Intent intent = getIntent();
 
 	@SuppressWarnings("deprecation")
 	@Override
@@ -51,12 +53,14 @@ public class Scoring extends Activity implements OnClickListener {
 		Button btShare = (Button) findViewById(R.id.button_share);
 		btShare.setOnClickListener(this);
 		
-		date = getIntent().getStringExtra("date");
+		Bundle bundle = this.getIntent().getExtras();
+		date = bundle.getString("date");
 		sqlrecipe = new SQLRecipes(this);
 		//final Random random = new Random();
-		double[] temp = {80, 1000, 17.5, 350, 13, 0.75, 100, 0.005, 14, 1.5, 1.7, 1.9, 0.0024, 85};
+		//double[] temp = {80, 1000, 17.5, 350, 13, 0.75, 100, 0.005, 14, 1.5, 1.7, 1.9, 0.0024, 85};
 		//double[] str = intent.getDoubleArrayExtra("nutr_list");
-		final getPoints a = new getPoints(temp);
+		str = bundle.getDoubleArray("nutr_list");
+		final getPoints a = new getPoints(str);
 		ran = Integer.parseInt(new java.text.DecimalFormat("0").format(a.score));
 		
 		feedback = (TextView) findViewById(R.id.scoring_feedback);
@@ -83,6 +87,7 @@ public class Scoring extends Activity implements OnClickListener {
 				new Handler().postDelayed(new Runnable() {
 					public void run() {
 						feedback.setText(getFeedback(ran,a.feedback_score));
+						feedback.setMovementMethod(ScrollingMovementMethod.getInstance());
 					}
 				}, 2000 * ran / 100 + 300);
 			}
@@ -94,11 +99,11 @@ public class Scoring extends Activity implements OnClickListener {
 	
 	public String getFeedback(int score, String fb_score){
 		String feedback;
-		if(score < 25) feedback =  "您的饮食很不健康\n" + fb_score;
-		else if(score < 60) feedback = "您的饮食有问题\n" + fb_score;
-		else if(score < 75) feedback = "您的饮食良好\n" + fb_score;
-		else if(score < 85) feedback = "您的饮食很好\n" + fb_score;
-	    else feedback = "您的饮食很完美\n" + fb_score;
+		if(score < 25) feedback =  "您的饮食很不健康" + fb_score;
+		else if(score < 60) feedback = "您的饮食有问题" + fb_score;
+		else if(score < 75) feedback = "您的饮食良好" + fb_score;
+		else if(score < 85) feedback = "您的饮食很好" + fb_score;
+	    else feedback = "您的饮食很完美" + fb_score;
 		sqlrecipe.updateScore(date, score);
 		sqlrecipe.updateFeedback(date, feedback);
 		return feedback;

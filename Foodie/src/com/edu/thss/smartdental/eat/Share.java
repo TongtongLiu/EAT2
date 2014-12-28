@@ -11,10 +11,11 @@ import android.view.Window;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class Share extends Activity{
-	private Button button;
+	private ImageButton button;
 	private EditText shareText;
 	private EditText usernameText;
 	private EditText topicText;
@@ -36,7 +37,7 @@ public class Share extends Activity{
 		String score = getIntent().getExtras().getSerializable("score").toString();
 		shareText.setText("我刚刚跑出了" + score + "分，谁能超过我？");
 		
-		button = (Button) findViewById(R.id.shareBtn);
+		button = (ImageButton) findViewById(R.id.shareBtn);
 		button.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View view){

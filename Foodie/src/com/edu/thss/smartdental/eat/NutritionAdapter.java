@@ -124,35 +124,49 @@ public class NutritionAdapter extends BaseAdapter{
 				name = foods.get(i).name;
 				weight = foods.get(i).weight;
 				nutr = sqlRecipes.findOneFoodNutritionByName(name);
-				consume[0][0] += nutr.vitamin_A * weight;
-				consume[0][1] += nutr.vitamin_C * weight;
-				consume[0][2] += nutr.vitamin_D* weight;
-				consume[0][3] += nutr.vitamin_E * weight;
-				consume[0][4] += nutr.vitamin_B6 * weight;
-				consume[0][5] += nutr.vitamin_B2 * weight; 
-				consume[0][6] += nutr.vitamin_B9 * weight;
-				consume[0][7] += nutr.vitamin_B12 * weight;
-				consume[1][0] += nutr.Ga * weight;
-				consume[1][1] += nutr.Ka * weight;
-				consume[1][2] += nutr.Fe* weight;
-				consume[1][3] += nutr.Mg * weight;
-				consume[1][4] += nutr.Zn * weight;			
-				consume[2][0] += nutr.fiber * weight;
-				consume[2][1] += nutr.protein * weight;
-				consume[2][2] += nutr.caloric* weight;	
+				consume[0][0] += nutr.vitamin_A * weight*standard[0][0]/10000;
+				consume[0][1] += nutr.vitamin_C * weight*standard[0][1]/10000;
+				consume[0][2] += nutr.vitamin_D* weight*standard[0][2]/10000;
+				consume[0][3] += nutr.vitamin_E * weight*standard[0][3]/10000;
+				consume[0][4] += nutr.vitamin_B6 * weight*standard[0][4]/10000;
+				consume[0][5] += nutr.vitamin_B2 * weight*standard[0][5]/10000; 
+				consume[0][6] += nutr.vitamin_B9 * weight*standard[0][6]/10000;
+				consume[0][7] += nutr.vitamin_B12 * weight*standard[0][7]/10000;
+				consume[1][0] += nutr.Ga * weight*standard[1][0]/10000;
+				consume[1][1] += nutr.Ka * weight*standard[1][1]/10000;
+				consume[1][2] += nutr.Fe* weight*standard[1][2]/10000;
+				consume[1][3] += nutr.Mg * weight*standard[1][3]/10000;
+				consume[1][4] += nutr.Zn * weight*standard[1][4]/10000;			
+				consume[2][0] += nutr.fiber * weight*standard[2][0]/10000;
+				consume[2][1] += nutr.protein * weight*standard[2][1]/10000;
+				consume[2][2] += nutr.caloric* weight*standard[2][2]/10000;	
 			}
-			get_nutr_list();
-			//Intent intent = new Intent(context, getPoints.class);
+			//get_nutr_list();
+			//Intent intent = new Intent(context, Scoring.class);
 			//intent.putExtra("nutr_list", nutr_list);
 		}
 	}
-	
-	private void get_nutr_list()
+	public void get_nutr_list()
 	{
 		for(int i = 0; i<consume[1].length;i++)
-			nutr_list[i] = consume[1][i];
-		for(int i = 0; i<consume[0].length; i++)
-			nutr_list[consume[1].length+i] = consume[0][i];
+		{
+			if(unit[1][i] == "μg")
+			{
+				nutr_list[i] = consume[1][i];
+				nutr_list[i] = nutr_list[i]*0.001;
+			}
+			else
+				nutr_list[i] = consume[1][i];
+		}
+		for(int i = 0; i<consume[0].length; i++){
+			if(unit[0][i] == "μg")
+			{
+				nutr_list[consume[1].length+i] = consume[0][i];
+				nutr_list[consume[1].length+i] = nutr_list[consume[1].length+i]*0.001;
+			}
+			else
+				nutr_list[consume[1].length+i] = consume[0][i];
+		}
 		nutr_list[13] = consume[2][1];
 	}
 	
@@ -167,8 +181,8 @@ public class NutritionAdapter extends BaseAdapter{
 			int r = 0;
 			item.put("number", 100);
 			for(int j = 0; j < nutrData[i].length; j++)
-				r += consume[i][j];		
-			item.put("consume", r/100/nutrData[i].length);
+				r += consume[i][j]*100/standard[i][j];		
+			item.put("consume", r/nutrData[i].length);
 			item.put("unit", "%");
 			mData.add(item);
 		}
@@ -217,8 +231,8 @@ public class NutritionAdapter extends BaseAdapter{
 		itemm.put("number",100);
 		len = nutrData[itemNo].length;
 		for(int j = 0; j < len; j++)
-			r +=  consume[itemNo][j];
-		itemm.put("consume", r/len/100);
+			r +=  consume[itemNo][j]*100/standard[itemNo][j];
+		itemm.put("consume", r/len);
 		itemm.put("unit", "%");
 		set(position, itemm);
 		//���չ����Ŀ
@@ -229,7 +243,7 @@ public class NutritionAdapter extends BaseAdapter{
 			item.put("Logo", R.drawable.blank);
 			item.put("name",  nutrData[itemNo][i]);
 			item.put("number", standard[itemNo][i]);
-			item.put("consume", consume[itemNo][i]*standard[itemNo][i]/100);
+			item.put("consume", consume[itemNo][i]);
 			item.put("unit",  unit[itemNo][i]);
 			add(position+1+i, item);
 		}
@@ -245,8 +259,8 @@ public class NutritionAdapter extends BaseAdapter{
 		itemm.put("number",100);
 		len = nutrData[itemNo].length;
 		for(int j = 0; j < len; j++)
-			r +=  consume[itemNo][j];
-		itemm.put("consume", r/len/100);
+			r +=  consume[itemNo][j]*100/standard[itemNo][j];
+		itemm.put("consume", r/len);
 		itemm.put("unit","%");
 		set(position, itemm);
 		//ɾ����ϸ��Ŀ

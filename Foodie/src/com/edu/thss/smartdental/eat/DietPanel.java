@@ -80,8 +80,14 @@ public class DietPanel extends FragmentActivity implements ItemClickListener, On
 			startActivity(intent);
 			break;
 		case R.id.button_scoring:
+			Bundle bundle = new Bundle();
 			intent = new Intent("scoring");
-			intent.putExtra("date", dateString);
+			//intent.putExtra("date", dateString);
+			nutritionAdapter.get_nutr_list();
+			bundle.putString("date", dateString);
+			bundle.putDoubleArray("nutr_list",nutritionAdapter.nutr_list);
+			intent.putExtras(bundle);
+	
 			startActivity(intent);
 			break;
 		case R.id.button_back:
