@@ -7,6 +7,7 @@ public class getPoints {
 	double result = 0;
 	for(int i = 0; i<14; i++)
 	{
+		//feedback_score = "";
 	    double element = element_points(x[i], miu[i], theta[i], beta[i]);
 	    feedback(element, i ,x[i], advice);
 	    result += element;
@@ -62,7 +63,8 @@ public class getPoints {
 	if(feedback_result < 60)
 	{
 	    if(elm<miu[i])
-		feedback_score += "您今天的" + Name[i] + "摄取较少，需要多吃" + 
+	    
+	    	feedback_score += "您今天的" + Name[i] + "摄取较少，需要多吃" + 
 	    advice[i][0]+advice[i][1]+advice[i][2];
 	}
     }

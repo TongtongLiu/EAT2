@@ -89,8 +89,10 @@ public class Scoring extends Activity implements OnClickListener {
 				//跑分结束后延时显示反馈
 				new Handler().postDelayed(new Runnable() {
 					public void run() {
+						//feedback.setText("");
 						feedback.setText(getFeedback(ran,a.feedback_score));
 						feedback.setMovementMethod(ScrollingMovementMethod.getInstance());
+						a.feedback_score = "";
 					}
 				}, 2000 * ran / 100 + 300);
 			}
