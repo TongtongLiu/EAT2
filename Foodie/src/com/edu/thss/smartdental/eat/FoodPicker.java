@@ -2,7 +2,6 @@
  * 新增食物选择页面
  * 
  * @author Liu Tongtong
- * @date Dec 26, 2014
  * 
  */
 
@@ -46,7 +45,7 @@ public class FoodPicker extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_food_picker);
-		
+
 		// 时间初始化
 		setDate(getIntent().getStringExtra("date"));
 		
@@ -54,7 +53,12 @@ public class FoodPicker extends Activity {
 		setSqlRecipes(new SQLRecipes(this));
 		
 		// 种类名称、事物名称初始化
-		setFoodItems();
+		// 如果Extra中包含name项，说明是为了修改食物重量，所以固定食物项
+		if (getIntent().hasExtra("name")) {
+			fixFoodItem(getIntent().getStringExtra("name"));
+		} else {
+			setFoodItems();
+		}
 		
 		// 重量事件设置
 		setWeightBarListener();
@@ -71,11 +75,50 @@ public class FoodPicker extends Activity {
 		textView.setText(this.mDate);
 	}
 
-	public void setSqlRecipes(SQLRecipes sqlRecipes) {
+	private void setSqlRecipes(SQLRecipes sqlRecipes) {
 		this.mSqlRecipes = sqlRecipes;
 	}
 	
-	public void setFoodItems() {
+	private void fixFoodItem(String name) {
+		WheelView wvFoodCategory = (WheelView) findViewById(R.id.wheelView_type);
+		WheelView wvFoodName = (WheelView) findViewById(R.id.wheelView_name);
+		
+		String categoryString = mSqlRecipes.function(name);
+		mFoodCategoryStringLIst.add(categoryString);
+		
+		wvFoodCategory.setData(List<String>(type));
+		wvFoodCategory.setOnSelectListener(new onSelectListener() 
+		{
+			@Override
+			public void onSelect(String text) {
+				// Toast.makeText(FoodPicker.this, "要吃 " + text, Toast.LENGTH_SHORT).show();
+				// 根据类别名称设置wvFoodName的数据
+				int i;
+				for (i = 0; i < mFoodNameList.size(); i++) {
+					if (mFoodNameList.get(i).categoryString == text)
+						break;
+				}
+				WheelView wvFoodName = (WheelView) findViewById(R.id.wheelView_name);
+				wvFoodName.setData(mFoodNameList.get(i).nameList);
+				mName = mFoodNameList.get(i).nameList.get(0);
+			}
+		});
+		
+		WheelView wvFoodName = (WheelView) findViewById(R.id.wheelView_name);
+		
+		// 设置wvFoodName的数据和选择事件
+		mName = mFoodNameList.get(0).nameList.get(0);
+		wvFoodName.setData(mFoodNameList.get(0).nameList);
+		wvFoodName.setOnSelectListener(new onSelectListener() {
+			@Override
+			public void onSelect(String text) {
+				// Toast.makeText(FoodPicker.this, "吃了 " + text, Toast.LENGTH_SHORT).show();
+				mName = text;
+			}
+		});
+	}
+	
+	private void setFoodItems() {
 		WheelView wvFoodCategory = (WheelView) findViewById(R.id.wheelView_type);
 		
 		// 设置种类名称列表

@@ -117,14 +117,14 @@ public class DeleteAdapter extends BaseAdapter {
 			}
 		});
 
-		//淇敼鎸夐挳鐐瑰嚮浜嬩欢
+		// 修改食物
 		btnNao.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				showInfo("淇敼"+ listDatas.get(position).get("name"));
-				/*
-				 * TODO: 鐣岄潰璺宠浆
-				 */
+				Intent intent = new Intent(context, FoodPicker.class);
+				intent.putExtra("date", date);
+				intent.putExtra("name", (String) listDatas.get(position).get("name"));
+				context.startActivity(intent);
 			}
 		});
 		return convertView;
