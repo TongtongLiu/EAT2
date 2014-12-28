@@ -59,7 +59,7 @@ public class CircleBar extends View {
 	private void init(AttributeSet attrs, int defStyle) {
 		
 		//circleStrokeWidth = dip2px(getContext(), 10);
-		circleStrokeWidth = 60;
+		circleStrokeWidth = 10;
 		//pressExtraStrokeWidth = dip2px(getContext(), 2);
 		pressExtraStrokeWidth = 6;
 		//mTextSize = dip2px(getContext(), 100);//40

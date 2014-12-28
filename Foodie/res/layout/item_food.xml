@@ -16,8 +16,7 @@
         <ImageView
             android:id="@+id/Logo"
             android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:paddingLeft="10dp" />
+            android:layout_height="60dp"/>
 
         <TextView
             android:id="@+id/name"

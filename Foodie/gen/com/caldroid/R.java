@@ -22,6 +22,7 @@ public final class R {
 	public static final class drawable {
 		public static final int background = 0x7f02005c;
 		public static final int background2 = 0x7f02005d;
+		public static final int button_run = 0x7f0200d5;
 		public static final int calendar_next_arrow = 0x7f0200d6;
 		public static final int calendar_prev_arrow = 0x7f0200d7;
 		public static final int disable_cell = 0x7f0200e9;

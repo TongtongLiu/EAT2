@@ -54,6 +54,7 @@ public class DietPanel extends FragmentActivity implements ItemClickListener, On
 		Button btReturn = (Button) findViewById(R.id.button_back);
 		btReturn.setOnClickListener(this);
 		
+		
 		//鍒楄〃锛氫竴澶╃殑钀ュ吇 	
 		nutrList = (ListView) findViewById(R.id.listView_nItem);
 		nutritionAdapter = new NutritionAdapter(this, dateString);
