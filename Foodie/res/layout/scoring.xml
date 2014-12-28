@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity" >
+
+<!-- Reference: http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/0325/1603.html
+    <TextView
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:text="demo相关文章网址"
+    	
+        />
+        <TextView
+	        android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/0325/1603.html"
+	    	
+        />
+
+	<com.example.circledemo.CircleBar
+    	android:id="@+id/circle"
+        android:layout_width="300dp"
+    	android:layout_height="300dp"
+    	android:layout_marginTop="20dip"
+    	android:layout_gravity="center"
+    	android:clickable="true"
+    />
+-->
+
+	<com.edu.thss.smartdental.eat.CircleBar
+    	android:id="@+id/circle"
+        android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_marginTop="20dip"
+    	android:layout_gravity="center"
+    	android:clickable="true"
+    />
+	
+<!--	
+	<TextView
+	    android:id="@+id/random"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content">    
+	</TextView>
+	
+
+  
+		<Button
+		    android:id="@+id/Button01"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentLeft="true"
+		    android:background="@drawable/myicon" />
+
+		<Button
+	    android:id="@+id/Button02"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentRight="true"
+	    android:background="@drawable/myicon1" />
+-->	
+	<RelativeLayout
+	    android:layout_width="200dp"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="50dp"
+		android:layout_gravity="center"
+	    android:orientation="horizontal" >
+	    
+		<TextView
+		    android:id="@+id/scoring_feedback"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="@string/scoring_initialtext"
+		    android:textSize="20sp" />
+	
+	</RelativeLayout></LinearLayout>
