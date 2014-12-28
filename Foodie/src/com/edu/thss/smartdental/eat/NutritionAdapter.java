@@ -32,6 +32,7 @@ public class NutritionAdapter extends BaseAdapter{
 	private Context context;
 	private SQLRecipes sqlRecipes;
 	private String date;
+	public double[] nutr_list= new double[14]; 
 	
 	String[] nutrition = {"维生素","矿物质","其他"};
 	String[][] nutrData = {			
@@ -138,8 +139,18 @@ public class NutritionAdapter extends BaseAdapter{
 				consume[2][0] += nutr.fiber * weight;
 				consume[2][1] += nutr.protein * weight;
 				consume[2][2] += nutr.caloric* weight;	
-			}	
+			}
+			get_nutr_list();
 		}
+	}
+	
+	private void get_nutr_list()
+	{
+		for(int i = 0; i<consume[1].length;i++)
+			nutr_list[i] = consume[1][i];
+		for(int i = 0; i<consume[0].length; i++)
+			nutr_list[consume[1].length+i] = consume[0][i];
+		nutr_list[13] = consume[2][1];
 	}
 	
 	private void summary()
