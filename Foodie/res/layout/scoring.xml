@@ -6,35 +6,35 @@
     android:layout_height="fill_parent"
     android:orientation="vertical"
     android:background="#FFFFFF"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-<!-- Reference: http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/0325/1603.html
-    <TextView
-        android:layout_width="wrap_content"
-    	android:layout_height="wrap_content"
-    	android:text="demo相关文章网址"
-    	
-        />
-        <TextView
-	        android:layout_width="wrap_content"
-	    	android:layout_height="wrap_content"
-	    	android:text="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2014/0325/1603.html"
-	    	
-        />
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="#5cc8e5" >
 
-	<com.example.circledemo.CircleBar
-    	android:id="@+id/circle"
-        android:layout_width="300dp"
-    	android:layout_height="300dp"
-    	android:layout_marginTop="20dip"
-    	android:layout_gravity="center"
-    	android:clickable="true"
-    />
--->
+                <TextView
+                    android:id="@+id/textView_diet_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="42dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_weight="0.18"
+                    android:text="健 康 评 分"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+
+                <Button
+                    android:id="@+id/button_back_1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignBaseline="@+id/textView_diet_1"
+                    android:layout_alignBottom="@+id/textView_diet_1"
+                    android:layout_alignParentLeft="true"
+                    android:background="@drawable/back" />
+
+            </RelativeLayout>
 
 	<com.edu.thss.smartdental.eat.CircleBar
     	android:id="@+id/circle"

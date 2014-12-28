@@ -43,7 +43,7 @@
         <activity
     		android:name="com.edu.thss.smartdental.eat.Scoring"
     		android:label="Scoring" 
-    		android:parentActivityName="com.edu.thss.smartdental.eat.EatCalendar" >
+    		android:theme="@android:style/Theme.Holo.Light.NoActionBar" >
      		<intent-filter>
         		<action android:name="scoring" />
         		<category android:name="android.intent.category.DEFAULT" />

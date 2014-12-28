@@ -81,8 +81,8 @@ public class Scoring extends Activity {
 			}
 		});
 		
-		android.app.ActionBar actionBar = getActionBar();
-		actionBar.setDisplayHomeAsUpEnabled(true);
+		//android.app.ActionBar actionBar = getActionBar();
+		//actionBar.setDisplayHomeAsUpEnabled(true);
 	}
 	
 	public String getFeedback(int score, String fb_score){
@@ -96,13 +96,14 @@ public class Scoring extends Activity {
 		sqlrecipe.updateFeedback(date, feedback);
 		return feedback;
 	}
-
+	/*
     @Override  
     public boolean onCreateOptionsMenu(Menu menu) {  
         MenuInflater inflater = getMenuInflater();  
         inflater.inflate(R.menu.scoring_menu, menu);
         return super.onCreateOptionsMenu(menu);  
     }  
+   
     @SuppressLint("NewApi") @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // TODO Auto-generated method stub
@@ -132,5 +133,5 @@ public class Scoring extends Activity {
             return true;
     	}
 
-    }
+    } */
 }
