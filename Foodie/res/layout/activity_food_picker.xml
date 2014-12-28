@@ -80,13 +80,17 @@
 	            android:layout_height="160dp"
 	            android:layout_weight="1" />
 	        
-       	    <TextView
-	            android:layout_width="match_parent"
-	            android:layout_height="10dp"
-	            android:background="@drawable/corner_bottom"
-	            android:textAppearance="?android:attr/textAppearanceMedium"
-	            android:textColor="@color/white" />
 	    </LinearLayout>
+
+		<TextView
+	        android:layout_width="match_parent"
+	        android:layout_height="10dp"
+	        android:layout_marginLeft="10dp"
+	        android:layout_marginRight="10dp"
+	        android:background="@drawable/corner_bottom"
+	        android:textAppearance="?android:attr/textAppearanceMedium"
+	        android:textColor="@color/white" />
+		
 	</LinearLayout>
 
 	<LinearLayout

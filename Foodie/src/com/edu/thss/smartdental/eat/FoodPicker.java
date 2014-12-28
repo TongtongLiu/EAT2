@@ -62,6 +62,7 @@ public class FoodPicker extends Activity {
 		// 按钮事件设置
 		setSaveButtonListener();
 		setContinueButtonListener();
+		setReturnButtonListener();
 	}
 	
 	private void setDate(String date) {
@@ -201,6 +202,17 @@ public class FoodPicker extends Activity {
 			public void onClick(View view) {
 				insertFoodItem(mSqlRecipes, mDate, mName, mWeight);
 				startNewIntent(new Intent(FoodPicker.this, FoodPicker.class), mDate);
+			}
+		});
+	}
+	
+	private void setReturnButtonListener() {
+		Button btReturn = (Button) findViewById(R.id.button_food_back);
+		
+		btReturn.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				startNewIntent(new Intent(FoodPicker.this, DietPanel.class), mDate);
 			}
 		});
 	}
