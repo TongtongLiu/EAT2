@@ -13,6 +13,7 @@ import com.edu.thss.smartdental.model.foodNutrition;
 import android.R.integer;
 import android.content.Context;
 import android.content.ClipData.Item;
+import android.content.Intent;
 import android.hardware.ConsumerIrManager;
 import android.provider.ContactsContract.Contacts.Data;
 import android.text.GetChars;
@@ -32,6 +33,7 @@ public class NutritionAdapter extends BaseAdapter{
 	private Context context;
 	private SQLRecipes sqlRecipes;
 	private String date;
+	public double[] nutr_list = new double[14]; 
 	
 	String[] nutrition = {"维生素","矿物质","其他"};
 	String[][] nutrData = {			
@@ -138,8 +140,20 @@ public class NutritionAdapter extends BaseAdapter{
 				consume[2][0] += nutr.fiber * weight;
 				consume[2][1] += nutr.protein * weight;
 				consume[2][2] += nutr.caloric* weight;	
-			}	
+			}
+			get_nutr_list();
+			//Intent intent = new Intent(context, getPoints.class);
+			//intent.putExtra("nutr_list", nutr_list);
 		}
+	}
+	
+	private void get_nutr_list()
+	{
+		for(int i = 0; i<consume[1].length;i++)
+			nutr_list[i] = consume[1][i];
+		for(int i = 0; i<consume[0].length; i++)
+			nutr_list[consume[1].length+i] = consume[0][i];
+		nutr_list[13] = consume[2][1];
 	}
 	
 	private void summary()
