@@ -1,4 +1,4 @@
-package com.edu.thss.smartdental.db;
+﻿package com.edu.thss.smartdental.db;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -157,6 +157,21 @@ public class SQLRecipes {
 			}
 			cursor.close();
 			return f;
+		}
+	//根据食物名称获取食物所属种类
+		public String findFoodCategoryByName(String name){
+			foodNutrition fn = findOneFoodNutritionByName(name);
+			foodCategory f = new foodCategory();
+			SQLiteDatabase database = helper.getReadableDatabase();
+			Cursor cursor = database.rawQuery("select * from foodCategory where id = ?",new String[]{fn.fc_id+""});
+			while(cursor.moveToNext())
+			{
+				f.id = cursor.getInt(cursor.getColumnIndex("id"));
+				f.name = cursor.getString(cursor.getColumnIndex("name"));
+				f.path = cursor.getString(cursor.getColumnIndex("path"));
+			}
+			cursor.close();
+			return f.name;
 		}
 	//获取所有的饮食种类
 		public List<foodCategory> findFoodCategory(){
