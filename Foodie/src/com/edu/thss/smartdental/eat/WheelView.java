@@ -173,10 +173,10 @@ public class WheelView extends View {
 
 		try {
 			canvas.drawText(mDataList.get(mCurrentSelected), x, baseline, mPaint);
-			canvas.drawLine(5, (float) (y - size * 0.7), 
-					mViewWidth - 5, (float) (y - size * 0.7), mPaint);
-			canvas.drawLine(5, (float) (y + size * 0.7), 
-					mViewWidth - 5, (float) (y + size * 0.7), mPaint);
+			canvas.drawLine(5, (float) (y - size * 0.8), 
+					mViewWidth - 5, (float) (y - size * 0.8), mPaint);
+			canvas.drawLine(5, (float) (y + size * 0.8), 
+					mViewWidth - 5, (float) (y + size * 0.8), mPaint);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
