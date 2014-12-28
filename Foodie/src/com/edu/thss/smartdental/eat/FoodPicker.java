@@ -66,8 +66,8 @@ public class FoodPicker extends Activity {
 	
 	private void setDate(String date) {
 		this.mDate = date;
-		// TextView textView = (TextView) findViewById(R.id.textView_food_date);
-		// textView.setText(this.mDate + getResources().getString(R.string.food_picker_title));
+		TextView textView = (TextView) findViewById(R.id.textView_food_date);
+		textView.setText(this.mDate);
 	}
 
 	public void setSqlRecipes(SQLRecipes sqlRecipes) {

@@ -19,14 +19,14 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ListView;
-
+import android.widget.TextView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 
 import com.edu.thss.smartdental.eat.NutritionAdapter;
 import com.edu.thss.smartdental.eat.ScrollListviewDelete.ItemClickListener;
 
-public class MyDiet extends FragmentActivity implements ItemClickListener, OnClickListener{
+public class DietPanel extends FragmentActivity implements ItemClickListener, OnClickListener{
 
 	public SQLRecipes sqlRecipes = null;
 	String dateString = null;
@@ -43,12 +43,13 @@ public class MyDiet extends FragmentActivity implements ItemClickListener, OnCli
 	protected void onCreate(Bundle savedInstanceState) 
 	{
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.add_diet);			
+		setContentView(R.layout.activity_diet_panel);			
 
 		//Textview 鑾峰彇鏃堕棿
 		Intent intent = getIntent();
 		dateString = getIntent().getStringExtra("date");
-
+		TextView textView = (TextView) findViewById(R.id.textView_diet);
+		textView.setText(dateString);
 
 				
 		//鎸夐挳锛氭坊鍔犻鐗�
