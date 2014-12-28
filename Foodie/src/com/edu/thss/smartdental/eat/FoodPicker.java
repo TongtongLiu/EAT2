@@ -2,7 +2,6 @@
  * 新增食物选择页面
  * 
  * @author Liu Tongtong
- * @date Dec 26, 2014
  * 
  */
 
@@ -39,14 +38,14 @@ public class FoodPicker extends Activity {
 		String categoryString = null;
 		List<String> nameList = new ArrayList<String>();
 	}
-	private List<String> mFoodCategoryStringLIst = new ArrayList<String>();
+	private List<String> mFoodCategoryStringList = new ArrayList<String>();
 	private List<CategorySet> mFoodNameList = new ArrayList<CategorySet>();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_food_picker);
-		
+
 		// 时间初始化
 		setDate(getIntent().getStringExtra("date"));
 		
@@ -54,7 +53,12 @@ public class FoodPicker extends Activity {
 		setSqlRecipes(new SQLRecipes(this));
 		
 		// 种类名称、事物名称初始化
-		setFoodItems();
+		// 如果Extra中包含name项，说明是为了修改食物重量，所以固定食物项
+		if (getIntent().hasExtra("name")) {
+			fixFoodItem(getIntent().getStringExtra("name"));
+		} else {
+			setFoodItems();
+		}
 		
 		// 重量事件设置
 		setWeightBarListener();
@@ -71,27 +75,72 @@ public class FoodPicker extends Activity {
 		textView.setText(this.mDate);
 	}
 
-	public void setSqlRecipes(SQLRecipes sqlRecipes) {
+	private void setSqlRecipes(SQLRecipes sqlRecipes) {
 		this.mSqlRecipes = sqlRecipes;
 	}
 	
-	public void setFoodItems() {
+	private void fixFoodItem(String name) {
+		// 食物种类设置
+		WheelView wvFoodCategory = (WheelView) findViewById(R.id.wheelView_type);
+		String categoryString = mSqlRecipes.findFoodCategoryByName(name);
+		mFoodCategoryStringList.add(categoryString);
+		
+		wvFoodCategory.setData(mFoodCategoryStringList);
+		wvFoodCategory.setOnSelectListener(new onSelectListener() 
+		{
+			@Override
+			public void onSelect(String text) {
+				return;
+			}
+		});
+		
+		// 食物名称设置
+		WheelView wvFoodName = (WheelView) findViewById(R.id.wheelView_name);
+		List<String> nameList = new ArrayList<String>();
+		nameList.add(name);
+		
+		wvFoodName.setData(nameList);
+		wvFoodName.setOnSelectListener(new onSelectListener() {
+			@Override
+			public void onSelect(String text) {
+				return;
+			}
+		});
+		
+		// 重量初始化
+		mName = name;
+		SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar_food_weight);
+		TextView textView = (TextView) findViewById(R.id.textView_weight);
+		
+		List<foodInRecipes> foodExist = mSqlRecipes.findFoodInRecipes(mDate);
+		for (int i = 0; i < foodExist.size(); i++) {
+			if (foodExist.get(i).name.equals(name)) {
+				mWeight = foodExist.get(i).weight;
+				mSqlRecipes.updateFoodWeight(mDate, mName, 0);
+				seekBar.setProgress(mWeight);
+				textView.setText(getResources().getString(R.string.food_picker_weight) + ": " + mWeight + "g");
+				return;
+			}
+		}
+	}
+	
+	private void setFoodItems() {
 		WheelView wvFoodCategory = (WheelView) findViewById(R.id.wheelView_type);
 		
 		// 设置种类名称列表
 		List<foodCategory> tmpFoodCategoryList = mSqlRecipes.findFoodCategory();
 		for (int i = 0; i < tmpFoodCategoryList.size(); i++) {
-			mFoodCategoryStringLIst.add(tmpFoodCategoryList.get(i).name);
+			mFoodCategoryStringList.add(tmpFoodCategoryList.get(i).name);
 		}
 		
 		// 设置每一个种类对应的食物名称列表
 		List<foodNutrition> tmpFoodNutritionList = null;
 		CategorySet tmpCategorySet = null;
-		for (int i = 0; i < mFoodCategoryStringLIst.size(); i++) {
+		for (int i = 0; i < mFoodCategoryStringList.size(); i++) {
 			tmpFoodNutritionList = new ArrayList<foodNutrition>();
-			tmpFoodNutritionList = mSqlRecipes.findFoodNutritionByName(mFoodCategoryStringLIst.get(i));
+			tmpFoodNutritionList = mSqlRecipes.findFoodNutritionByName(mFoodCategoryStringList.get(i));
 			tmpCategorySet = new CategorySet();
-			tmpCategorySet.categoryString = mFoodCategoryStringLIst.get(i);
+			tmpCategorySet.categoryString = mFoodCategoryStringList.get(i);
 			for (int j = 0; j < tmpFoodNutritionList.size(); j++) {
 				tmpCategorySet.nameList.add(tmpFoodNutritionList.get(j).name);
 			}
@@ -99,7 +148,7 @@ public class FoodPicker extends Activity {
 		}
 		
 		// 设置wvFoodCategory的数据和选择事件
-		wvFoodCategory.setData(mFoodCategoryStringLIst);
+		wvFoodCategory.setData(mFoodCategoryStringList);
 		wvFoodCategory.setOnSelectListener(new onSelectListener() 
 		{
 			@Override

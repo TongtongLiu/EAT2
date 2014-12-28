@@ -1,3 +1,10 @@
+/**
+ * 滚动选择器（基于原作者chenjing的版本修改）
+ * 
+ * @author Liu Tongtong
+ * 
+ */
+
 package com.edu.thss.smartdental.eat;
 
 import java.util.ArrayList;
@@ -17,12 +24,6 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-/**
- * 滚动选择器
- * 
- * @author chenjing
- * 
- */
 public class WheelView extends View
 {
 

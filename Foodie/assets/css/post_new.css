@@ -1,0 +1,128 @@
+#post-new-container
+{
+    position: absolute;
+}
+
+#titleBody
+{
+	padding:10px;
+	width:100%;
+	height:20%;
+	background-color:#1E90FF;
+	text-align:center;
+}
+
+#inputBody
+{
+	width:100%;
+}
+
+#contentDiv
+{
+	width:80%;
+	margin-left:10%;
+	margin-top:2%;
+}
+
+#submitDiv
+{
+	width:100%;
+	height:20%;
+	text-align:center;
+}
+
+#content
+{
+	width:98%;
+}
+
+#author
+{
+	width:78%;
+}
+
+#title
+{
+	width:78%;
+}
+
+#submit
+{
+	width:30%;
+	height:40px;
+	margin-top: 0.5%;
+	background:#1E90FF;
+	font-size:10px;
+}
+
+#postContent
+{
+	text-align:center;
+}
+
+.post-head
+{
+	width: 100%;
+	height: 50px;
+	background-color: #1E90FF; 
+
+	text-align: center;
+}
+
+.post-title
+{
+	color: white;
+	padding-top: 4%;
+	font-size: 20px;
+
+	font-weight: bold;
+    text-shadow: 2px 2px #666;
+}
+
+.post-back-icon-area
+{
+	float: left;
+	position: fixed;
+	margin-top: 4%;
+	margin-left: 10px;
+}
+
+.post-back-icon
+{
+    color: white;
+    font-size: 23px;
+    text-shadow: 2px 2px #666;
+}
+
+.post-new-icon
+{
+    font-size: 29px;
+    color: white;
+    float: left;
+    display: block;
+    width: 7%;
+    margin-top: 3%;
+    margin-left: 41%;
+    text-shadow: 3px 3px #666;
+}
+
+.post-footer-box
+{
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    background-color: #1E90FF;
+    height: 8%;
+    width: 100%;
+}
+
+.post-footer-text
+{
+    float: left;
+    color: #FFFFFF;
+    margin-top: 4%;
+    margin-left: 2%;
+    font-size: 20px;
+    text-shadow: 3px 3px #666;
+}
+
