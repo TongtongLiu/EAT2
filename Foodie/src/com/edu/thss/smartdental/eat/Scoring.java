@@ -114,11 +114,9 @@ public class Scoring extends Activity implements OnClickListener {
 			startActivity(intent);
 			break;
 		case R.id.button_share:
-			/*
-			intent = new Intent(this, EatCalendar.class);
-			intent.putExtra("date", date);
-			startActivity(intent);
-			*/
+    		intent = new Intent("share");
+    		intent.putExtra("score", ran);
+    		startActivity(intent);
 			break;
 		default:
 			break;
