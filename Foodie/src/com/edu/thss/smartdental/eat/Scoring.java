@@ -24,10 +24,11 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.edu.thss.smartdental.eat.getPoints;
 import com.edu.thss.smartdental.eat.NutritionAdapter;
 
-public class Scoring extends Activity {
+public class Scoring extends Activity implements OnClickListener {
 	private CircleBar circleBar;
 	private Button buttonReset;
 	private Button buttonBegin;
@@ -43,6 +44,12 @@ public class Scoring extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.scoring);
+		
+		Button btReturn = (Button) findViewById(R.id.button_back_1);
+		btReturn.setOnClickListener(this);
+		
+		Button btShare = (Button) findViewById(R.id.button_share);
+		btShare.setOnClickListener(this);
 		
 		date = getIntent().getStringExtra("date");
 		sqlrecipe = new SQLRecipes(this);
@@ -64,9 +71,9 @@ public class Scoring extends Activity {
 				//分数字体大小
 				circleBar.setTextSize(circleBar.getHeight() / 4);
 				//圆环大小
-				circleBar.setCircleWidth(60);
+				circleBar.setCircleWidth(20);
 				//点击圆环时增加的大小
-				circleBar.setPressWidth(6);
+				circleBar.setPressWidth(10);
 				circleBar.startCustomAnimation();
 				//末状态分数
 				circleBar.setText(String.valueOf(ran));
@@ -96,42 +103,25 @@ public class Scoring extends Activity {
 		sqlrecipe.updateFeedback(date, feedback);
 		return feedback;
 	}
-	/*
-    @Override  
-    public boolean onCreateOptionsMenu(Menu menu) {  
-        MenuInflater inflater = getMenuInflater();  
-        inflater.inflate(R.menu.scoring_menu, menu);
-        return super.onCreateOptionsMenu(menu);  
-    }  
-   
-    @SuppressLint("NewApi") @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // TODO Auto-generated method stub
-    	switch(item.getItemId()){
-    	case R.id.food2:
-    		setTitle("你是吃货！");
-    		feedback.setText(Integer.toHexString(R.id.food2));
-    		return true;
-    	case R.id.food3:
-    		setTitle("你就是吃货！！");
-    		feedback.setText(Integer.toHexString(R.id.food3));
-    		return true;
-    	case android.R.id.home:
-            Intent upIntent = NavUtils.getParentActivityIntent(this);  
-            if (NavUtils.shouldUpRecreateTask(this, upIntent)) {  
-                TaskStackBuilder.create(this)
-                	.addNextIntentWithParentStack(upIntent)
-                	.startActivities();
-            } 
-            else {
-                upIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);  
-                NavUtils.navigateUpTo(this, upIntent);  
-            }
-    		return true;
+	public void onClick(View view)
+	{
+		Intent intent = null;
+		switch(view.getId())
+		{
+		case R.id.button_back_1:
+			intent = new Intent(this, EatCalendar.class);
+			intent.putExtra("date", date);
+			startActivity(intent);
+			break;
+		case R.id.button_share:
+			/*
+			intent = new Intent(this, EatCalendar.class);
+			intent.putExtra("date", date);
+			startActivity(intent);
+			*/
+			break;
 		default:
-    		setTitle("你不是吃货～");
-            return true;
-    	}
-
-    } */
+			break;
+		}
+	}
 }
