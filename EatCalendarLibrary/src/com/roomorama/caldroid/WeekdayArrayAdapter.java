@@ -49,13 +49,13 @@ public class WeekdayArrayAdapter extends ArrayAdapter<String> {
 		// Show smaller text if the size of the text is 4 or more in some
 		// locale
 		if (item.length() <= 3) {
-			textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+			textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
 		} else {
 			textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 11);
 		}
 
 		textView.setTextColor(textColor);
-		Typeface type = Typeface.createFromAsset(getContext().getAssets(), "fonts/calendarfont.ttf");
+		Typeface type = Typeface.createFromAsset(getContext().getAssets(), "fonts/calendarfont2.ttf");
 		textView.setTypeface(type);
 		textView.setGravity(Gravity.CENTER);
 		return textView;

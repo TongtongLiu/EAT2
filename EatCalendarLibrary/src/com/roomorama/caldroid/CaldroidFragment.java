@@ -22,6 +22,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.text.format.DateFormat;
 import android.text.format.DateUtils;
 import android.text.format.Time;
 import android.view.LayoutInflater;
@@ -91,8 +92,7 @@ public class CaldroidFragment extends DialogFragment {
 	/**
 	 * Flags to display month
 	 */
-	private static final int MONTH_YEAR_FLAG = DateUtils.FORMAT_SHOW_DATE
-			| DateUtils.FORMAT_NO_MONTH_DAY | DateUtils.FORMAT_SHOW_YEAR;
+	private static final int MONTH_YEAR_FLAG = DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_NO_MONTH_DAY | DateUtils.FORMAT_SHOW_YEAR;
 
 	/**
 	 * First day of month time
@@ -102,9 +102,10 @@ public class CaldroidFragment extends DialogFragment {
 	/**
 	 * Reuse formatter to print "MMMM yyyy" format
 	 */
+	
 	private final StringBuilder monthYearStringBuilder = new StringBuilder(50);
-	private Formatter monthYearFormatter = new Formatter(
-			monthYearStringBuilder, Locale.getDefault());
+	//private Formatter monthYearFormatter = new Formatter(monthYearStringBuilder, Locale.US);
+	private Formatter monthYearFormatter = new Formatter(monthYearStringBuilder, Locale.US);
 
 	/**
 	 * To customize the selected background drawable and text color
@@ -125,6 +126,7 @@ public class CaldroidFragment extends DialogFragment {
 	 */
 	private Button leftArrowButton;
 	private Button rightArrowButton;
+	private Button editButton;
 	private TextView monthTitleTextView;
 	private GridView weekdayGridView;
 	private InfiniteViewPager dateViewPager;
@@ -275,6 +277,17 @@ public class CaldroidFragment extends DialogFragment {
 
 	public Button getRightArrowButton() {
 		return rightArrowButton;
+	}
+
+	public Button getEditButton(){
+		return editButton;
+		
+	}
+
+	
+	public void setEditButton(Button editButton){
+		this.editButton = editButton;
+		
 	}
 
 	/**
@@ -896,8 +909,9 @@ public class CaldroidFragment extends DialogFragment {
 
 	/**
 	 * Refresh month title text view when user swipe
+	 * @throws ParseException 
 	 */
-	protected void refreshMonthTitleTextView() {
+	protected void refreshMonthTitleTextView(){
 		// Refresh title view
 		firstMonthTime.year = year;
 		firstMonthTime.month = month - 1;
@@ -907,9 +921,21 @@ public class CaldroidFragment extends DialogFragment {
 		// This is the method used by the platform Calendar app to get a
 		// correctly localized month name for display on a wall calendar
 		monthYearStringBuilder.setLength(0);
+		//monthYearFormatter.format(Locale.US, "%tb");
 		String monthTitle = DateUtils.formatDateRange(getActivity(),
 				monthYearFormatter, millis, millis, MONTH_YEAR_FLAG).toString();
-
+		String m_year = monthTitle.substring(0, 4);
+		String m_month = null;
+		if (monthTitle.length() >= 11)
+			m_month = monthTitle.substring(7, 9);
+		else 
+			m_month = monthTitle.substring(7, 8);
+		int mm_month = Integer.parseInt(m_month);
+		String st[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jue", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+		String rm_month = st[mm_month - 1];
+		monthTitle = rm_month + ", " + m_year;
+		
+		
 		monthTitleTextView.setText(monthTitle);
 	}
 
@@ -1088,10 +1114,13 @@ public class CaldroidFragment extends DialogFragment {
 
 		// For the monthTitleTextView
 		monthTitleTextView = (TextView) view.findViewById(R.id.calendar_month_year_textview);
-		Typeface type = Typeface.createFromAsset(getActivity().getAssets(), "fonts/calendarfont.ttf");
+		Typeface type = Typeface.createFromAsset(getActivity().getAssets(), "fonts/calendarfont2.ttf");
 		monthTitleTextView.setTypeface(type);
 		//使用字体
 		/*monthTitleTextView.setTypeface(typeFace);*/
+		
+		//For the EditButton
+		editButton = (Button)view.findViewById(R.id.editButton);
 
 		// For the weekday gridview ("SUN, MON, TUE, WED, THU, FRI, SAT")
 		weekdayGridView = (GridView) view.findViewById(R.id.weekday_gridview);
@@ -1216,7 +1245,7 @@ public class CaldroidFragment extends DialogFragment {
 	protected ArrayList<String> getDaysOfWeek() {
 		ArrayList<String> list = new ArrayList<String>();
 
-		SimpleDateFormat fmt = new SimpleDateFormat("EEE", Locale.getDefault());
+		SimpleDateFormat fmt = new SimpleDateFormat("EE", Locale.US);
 
 		// 17 Feb 2013 is Sunday
 		DateTime sunday = new DateTime(2013, 2, 17, 0, 0, 0, 0);
@@ -1224,7 +1253,7 @@ public class CaldroidFragment extends DialogFragment {
 
 		for (int i = 0; i < 7; i++) {
 			Date date = CalendarHelper.convertDateTimeToDate(nextDay);
-			list.add(fmt.format(date).toUpperCase());
+			list.add(fmt.format(date));
 			nextDay = nextDay.plusDays(1);
 		}
 
