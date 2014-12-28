@@ -1,5 +1,6 @@
 package com.edu.thss.smartdental.eat;
 
+import java.util.List;
 import java.util.Random;
 
 import com.edu.thss.smartdental.eat.R;
@@ -27,6 +28,7 @@ import android.widget.TextView;
 
 import com.edu.thss.smartdental.eat.getPoints;
 import com.edu.thss.smartdental.eat.NutritionAdapter;
+import com.edu.thss.smartdental.model.foodInRecipes;
 
 public class Scoring extends Activity implements OnClickListener {
 	private CircleBar circleBar;
@@ -53,6 +55,7 @@ public class Scoring extends Activity implements OnClickListener {
 		
 		date = getIntent().getStringExtra("date");
 		sqlrecipe = new SQLRecipes(this);
+
 		//final Random random = new Random();
 		double[] temp = {80, 1000, 17.5, 350, 13, 0.75, 100, 0.005, 14, 1.5, 1.7, 1.9, 0.0024, 85};
 		//double[] str = intent.getDoubleArrayExtra("nutr_list");
@@ -115,6 +118,11 @@ public class Scoring extends Activity implements OnClickListener {
 			break;
 		case R.id.button_share:
     		intent = new Intent("share");
+			List<foodInRecipes> food = sqlrecipe.findFoodInRecipes(date);
+			for(int i = 0; i < food.size(); i++){
+				intent.putExtra("food" + i, food.get(i).name);
+			}
+			intent.putExtra("foodSize", food.size());
     		intent.putExtra("score", ran);
     		startActivity(intent);
 			break;
