@@ -1,0 +1,292 @@
+body{
+	font-family: arial, sans-serif;
+	width: 100%;
+}
+
+.single-head
+{
+	width: 100%;
+	height: 50px;
+	background-color: #1E90FF; 
+
+	text-align: center;
+}
+
+.single-back-icon-area
+{
+	float: left;
+	margin-top: 4%;
+	margin-left: 10px;
+	position: absolute;
+}
+
+.single-back-icon
+{
+    color: white;
+    font-size: 23px;
+    text-shadow: 2px 2px #666;
+}
+
+.single-title
+{
+	color: white;
+	padding-top: 4%;
+	font-size: 20px;
+	
+	font-weight: bold;
+    text-shadow: 2px 2px #666;
+}
+
+.single-post-content
+{
+	width: 100%;
+	background-color: white;
+}
+
+.single-post-empty
+{
+	height: 200px;
+}
+
+.single-main-post
+{
+	border-bottom-style: solid;
+	border-bottom-color: #CCC7C4;
+	border-bottom-width: 1px;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+.single-main-head
+{
+	height: 30%;
+
+	border-bottom-style: solid;
+	border-bottom-color: #CCC7C4;
+	border-bottom-width: 1px;
+    padding-bottom: 10px;
+}
+
+.single-main-avatar
+{
+	width: 20%;
+	float: left;
+	margin-top: 2%;
+	text-align: center;
+}
+
+.single-main-avatar img
+{
+	width: 60%;
+}
+
+.single-main-name
+{
+	float: left;
+	padding-top: 5%;
+
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.single-main-like
+{
+	width: 22%;
+	float: right;
+	margin-top: 5%;
+	border-left-style: solid;
+	border-left-color: #CCC7C4;
+	border-left-width: 1px;
+	text-align: center;
+	margin-right: 5%;
+}
+
+.single-main-like img
+{
+	width: 35%;
+	cursor: pointer;
+}
+
+.single-main-favor
+{
+	float: right;
+	font-size: 23px;
+	margin-right: 7%;
+}
+
+.clearfloat
+{
+    clear: both;
+}
+
+.single-main-body
+{
+	clear: both;
+	height: 58%;
+	margin: 3% 4% 7% 5%;
+	word-wrap: break-word;
+
+	font-size: 16px;
+	font-weight: bold;
+	color: #646464;
+}
+
+.single-main-foot
+{
+	height: 6%;
+	font-size: 1%;
+	color: #CCC7C4;
+	margin-top: -1%;
+    margin-bottom: 5px;
+}
+
+.single-main-time
+{
+	float: right;
+	margin-right: 2%;
+}
+
+.response li {
+	list-style-type: none;
+	margin: 5% 2% 5% 2%;
+}
+
+.response
+{
+	clear: both;
+	padding: 0px;
+    margin: 0;
+}
+
+.response-post
+{
+	border-bottom-style: solid;
+	border-bottom-color: #CCC7C4;
+	border-bottom-width: 1px;
+}
+
+.response-left
+{
+	float: left;
+	width: 20%;
+}
+
+.response-avatar
+{
+	text-align: center;
+}
+
+.response-left img
+{
+	width: 50%;
+}
+
+.response-middle
+{
+	float: left;
+	width: 57%;
+}
+
+.response-name
+{
+	clear: both;
+	margin-left: -3%;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.response-content
+{
+	word-wrap: break-word;
+	margin-top: 10px;
+	color: #646464;
+}
+
+.response-right
+{
+	float: left;
+	width: 23%;
+}
+
+.response-like
+{
+	clear: both;
+	height: 50px;
+
+}
+
+.response-like img
+{
+	height: 18px;
+	margin-left: 25%;
+	cursor: pointer;
+}
+
+.response-favor
+{
+	float: right;
+	padding-right: 10%;
+	margin-top: 3%;
+}
+
+.response-foot
+{
+	clear: both;
+	height: 10px;
+    margin-bottom: 5px;
+}
+
+.response-time
+{
+	float: right;
+	text-align: center;
+	font-size: 10px;
+	color: #CCC7C4;
+}
+
+.single-foot
+{
+	width: 100%;
+	height: 8%;
+	background-color: #1E90FF; 
+	text-align: center;
+	
+	position: fixed;
+	bottom: 0;
+	z-index: 9999;
+}
+
+.response-action
+{
+    font-size: 20px;
+    border-radius: 5px;
+	float: left;
+	width: 70%;
+	height: 55%;
+
+	margin-left: 12%;
+	margin-top: 3%;
+    box-shadow: #666 3px 3px;
+}
+.response-action:hover{
+    -webkit-transition:border linear .2s,-webkit-box-shadow linear .5s;
+    border-color:rgba(255,255,255,.75);
+    -webkit-box-shadow:0 0 18px rgba(255,255,255,3);
+}
+
+.comment
+{
+    color: white;
+    font-size: 28px;
+	float: left;
+	width: 7%;
+	margin: 3%;
+	margin-left: 4%;
+
+	cursor: pointer;
+
+}
+
+.text-shadow {
+    text-shadow: 3px 3px #666;
+}
