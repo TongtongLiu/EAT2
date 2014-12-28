@@ -45,7 +45,7 @@ public class Fourm extends Activity{
 		setContentView(R.layout.fourm);
 		
 		getActionBar().hide();
-		//new Thread(runnable).start();
+		new Thread(runnable).start();
 		
 		fourmView = (WebView) findViewById(R.id.fourmView);
 		fourmView.getSettings().setJavaScriptEnabled(true);
