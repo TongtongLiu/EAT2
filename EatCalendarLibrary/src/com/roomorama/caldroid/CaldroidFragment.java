@@ -11,6 +11,8 @@ import java.util.Formatter;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.TimeZone;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
@@ -105,7 +107,7 @@ public class CaldroidFragment extends DialogFragment {
 	
 	private final StringBuilder monthYearStringBuilder = new StringBuilder(50);
 	//private Formatter monthYearFormatter = new Formatter(monthYearStringBuilder, Locale.US);
-	private Formatter monthYearFormatter = new Formatter(monthYearStringBuilder, Locale.US);
+	private Formatter monthYearFormatter = new Formatter(monthYearStringBuilder, Locale.getDefault());
 
 	/**
 	 * To customize the selected background drawable and text color
@@ -925,11 +927,11 @@ public class CaldroidFragment extends DialogFragment {
 		String monthTitle = DateUtils.formatDateRange(getActivity(),
 				monthYearFormatter, millis, millis, MONTH_YEAR_FLAG).toString();
 		String m_year = monthTitle.substring(0, 4);
-		String m_month = null;
-		if (monthTitle.length() >= 11)
-			m_month = monthTitle.substring(7, 9);
-		else 
-			m_month = monthTitle.substring(7, 8);
+		String others = monthTitle.substring(4);
+		String regEx="[^0-9]";   
+		Pattern p = Pattern.compile(regEx);   
+		Matcher m = p.matcher(others);   
+		String m_month = m.replaceAll("").trim();
 		int mm_month = Integer.parseInt(m_month);
 		String st[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jue", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
 		String rm_month = st[mm_month - 1];
@@ -1120,14 +1122,6 @@ public class CaldroidFragment extends DialogFragment {
 		/*monthTitleTextView.setTypeface(typeFace);*/
 		
 		//For the EditButton
-		editButton = (Button)view.findViewById(R.id.editButton);
-		/*editButton.setOnClickListener(new Button.OnclickListener()
-		{
-			public void onClick(View v)
-			{
-				
-			}
-		});*/
 
 		// For the weekday gridview ("SUN, MON, TUE, WED, THU, FRI, SAT")
 		weekdayGridView = (GridView) view.findViewById(R.id.weekday_gridview);
